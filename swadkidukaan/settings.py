@@ -125,8 +125,8 @@ SIGNATURE_MAX_AGE = int(os.environ.get("SIGNATURE_MAX_AGE", "300"))
 # ---------------------------------------------------------------------------
 # Geofence
 # ---------------------------------------------------------------------------
-RESTAURANT_LAT = float(os.environ.get("RESTAURANT_LAT", "28.6139"))
-RESTAURANT_LNG = float(os.environ.get("RESTAURANT_LNG", "77.2090"))
+RESTAURANT_LAT = float(os.environ.get("RESTAURANT_LAT", "29.04039"))
+RESTAURANT_LNG = float(os.environ.get("RESTAURANT_LNG", "77.67525"))
 DELIVERY_RADIUS_KM = float(os.environ.get("DELIVERY_RADIUS_KM", "10.0"))
 
 # ---------------------------------------------------------------------------

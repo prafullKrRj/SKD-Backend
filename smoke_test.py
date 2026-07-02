@@ -48,8 +48,9 @@ def main():
     code, body = post("/api/orders/send-otp/", {
         "phone_number": PHONE,
         "cart_items": [{"name": "Chole Bhature", "price": 180, "qty": 2}],
-        "delivery_address": "12 MG Road, New Delhi",
-        "latitude": 28.6145, "longitude": 77.21,
+        "delivery_address": "Main Bazaar, Kiratpur",
+        "latitude": 29.0404, "longitude": 77.6752,
+        "location_confirmed": True,
     })
     print(f"[send]   {code}  {body}")
     ok &= code == 200
@@ -73,7 +74,8 @@ def main():
     ok &= len(orders) >= 1
     for o in orders:
         d = o.to_dict()
-        print(f"         id={o.id} status={d.get('status')} items={len(d.get('items', []))}")
+        print(f"         id={o.id} status={d.get('status')} items={len(d.get('items', []))} loc_confirmed={d.get('location_confirmed')}")
+        ok &= d.get("location_confirmed") is True
         o.reference.delete()  # cleanup test order
     print("[clean]  test orders removed")
 

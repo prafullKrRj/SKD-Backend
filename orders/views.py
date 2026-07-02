@@ -111,6 +111,7 @@ class SendOtpView(APIView):
                     "delivery_address": data["delivery_address"],
                     "latitude": data["latitude"],
                     "longitude": data["longitude"],
+                    "location_confirmed": data["location_confirmed"],
                 },
                 timeout=OTP_TTL_SECONDS,
             )
@@ -208,6 +209,7 @@ class VerifyOtpView(APIView):
                 pending["latitude"], pending["longitude"]
             ),
             "items": pending["cart_items"],
+            "location_confirmed": pending.get("location_confirmed", False),
             "timestamp": firestore.SERVER_TIMESTAMP,
         }
         _, ref = db.collection("orders").add(doc)

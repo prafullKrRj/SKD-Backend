@@ -19,6 +19,7 @@ class SendOtpSerializer(serializers.Serializer):
     delivery_address = serializers.CharField(max_length=1000)
     latitude = serializers.FloatField(min_value=-90, max_value=90)
     longitude = serializers.FloatField(min_value=-180, max_value=180)
+    location_confirmed = serializers.BooleanField(required=False, default=False)
 
 
 class VerifyOtpSerializer(serializers.Serializer):
