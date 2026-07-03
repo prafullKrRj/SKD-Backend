@@ -103,7 +103,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # CORS — browser client lock
 # ---------------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = env_list(
-    "CORS_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:5173,http://127.0.0.1:5173,"
+    "https://swaadkidukaanfront.prafullkumar384.workers.dev",
+)
+CORS_ALLOWED_ORIGIN_REGEXES = env_list(
+    "CORS_ALLOWED_ORIGIN_REGEXES",
+    r"^https://[a-z0-9-]+-swaadkidukaanfront\.prafullkumar384\.workers\.dev$",
 )
 CORS_ALLOW_HEADERS = [
     "accept",
